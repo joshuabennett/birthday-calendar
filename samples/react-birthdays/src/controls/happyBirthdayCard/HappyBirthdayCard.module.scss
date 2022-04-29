@@ -1,4 +1,4 @@
-@import '~office-ui-fabric-react/dist/sass/References.scss';
+@import "~office-ui-fabric-react/dist/sass/References.scss";
 
 .happyBirthday {
   .documentCard {
@@ -16,28 +16,26 @@
     user-select: none;
     position: relative;
     display: inline-block;
-
   }
-  .documentCard:hover{
+  .documentCard:hover {
     border-color: #c8c8c8;
   }
   .documentCardWrapper {
-   margin-top: 15px;
-   min-Width: 200px;
-   width: 200px;
-   min-height: 190px;
-   margin-right: 15px;
-   position: relative;
-   text-align: center;
-   display: inline-block;
+    margin-top: 15px;
+    min-width: 200px;
+    width: 200px;
+    min-height: 190px;
+    margin-right: 15px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
   }
   .container {
-
     max-width: 700px;
     margin: 0px auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
-  .today{
+  .today {
     @include ms-font-xl;
     @include ms-fontWeight-semibold;
     position: absolute;
@@ -52,33 +50,30 @@
     @include ms-fontWeight-semibold;
     position: absolute;
     top: 78px;
-     width: 100%;
+    width: 100%;
     font-style: italic;
     text-align: top;
     color: #666666;
-
-}
-.personaContainer {
-   margin-Top: 40px;
-   margin-Left: 10px;
-   margin-Right: 10px;
-
-}
-.persona{
-  position: absolute;
+  }
+  .personaContainer {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .persona {
+    position: absolute;
     top: 137px;
     max-width: 200px;
-
-}
-.actions{
-  position: absolute;
+  }
+  .actions {
+    position: absolute;
     top: 190px;
     width: 100%;
     border-top-style: solid;
     border-top-color: #f4f4f4;
     border-top-width: 1.1px;
-   // background-color: #f8f8f8;
-}
+    // background-color: #f8f8f8;
+  }
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
@@ -97,12 +92,10 @@
   .title {
     @include ms-font-xl;
     @include ms-fontColor-white;
-
   }
   .centeredHeader {
     position: relative;
-
-}
+  }
 
   .subTitle {
     @include ms-font-l;
@@ -115,38 +108,36 @@
   }
 
   .birthdaycake {
-    font-Size: 20px;
+    font-size: 20px;
 
     width: 30px;
     height: 30px;
     color: #ff6f69;
-     // color: $ms-color-themeTertiary;
-     bottom: 7px;
-      right:5px;
-      position: absolute;
-       border-radius: 50%;
-     background-color: #eaeaea;
-       @include ms-fontWeight-semibold;
+    // color: $ms-color-themeTertiary;
+    bottom: 7px;
+    right: 5px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #eaeaea;
+    @include ms-fontWeight-semibold;
   }
 
-  .displayBirthdayToday{
+  .displayBirthdayToday {
     @include ms-fontWeight-semibold;
-      width: 100%;
-      //color: $ms-color-themeTertiary;
-      color:  #ff6f69;
-      top: 107px;
-      position: absolute;
-      font-size: $ms-font-size-s;
-
+    width: 100%;
+    //color: $ms-color-themeTertiary;
+    color: #ff6f69;
+    top: 107px;
+    position: absolute;
+    font-size: $ms-font-size-s;
   }
-  .displayBirthday{
+  .displayBirthday {
     @include ms-fontWeight-semibold;
-      width: 100%;
-       color: $ms-color-themeTertiary;
-      top: 107px;
-      position: absolute;
-      font-size: $ms-font-size-s;
-
+    width: 100%;
+    color: $ms-color-themeTertiary;
+    top: 107px;
+    position: absolute;
+    font-size: $ms-font-size-s;
   }
 
   .button {
@@ -163,7 +154,8 @@
     // Basic Button
     outline: transparent;
     position: relative;
-    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    font-family: "Segoe UI WestEuropean", "Segoe UI", -apple-system,
+      BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: $ms-font-size-m;
     font-weight: $ms-font-weight-regular;
@@ -182,5 +174,9 @@
       vertical-align: top;
       display: inline-block;
     }
+  }
+  .todayBirthday {
+    border: 2px solid rgba(255, 0, 0, 0.507);
+    box-shadow: 1px 1px 5px 0 rgba(255, 0, 0, 0.568);
   }
 }

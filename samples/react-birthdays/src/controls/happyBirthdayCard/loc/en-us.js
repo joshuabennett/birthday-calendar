@@ -1,10 +1,11 @@
-define([], function() {
+define([], function () {
   return {
-    "BirthdayControlDefaultDay": "Today",
-    "HappyBirthdayMsg": "Happy Birthday!",
-    "NextBirthdayMsg": "Next Birthday",
-    "HappyAnniversaryMsg": "Happy Anniversary!",
-    "NextAnniversaryMsg": "Next Anniversary",
-    "MessageNoBirthdays": "There are no birthdays and anniversaries for the next days."
-  }
+    BirthdayControlDefaultDay: "Today",
+    HappyBirthdayMsg: "Happy Birthday!",
+    NextBirthdayMsg: "Upcoming Birthday",
+    HappyAnniversaryMsg: "Happy Anniversary!",
+    NextAnniversaryMsg: "Upcoming Anniversary",
+    MessageNoBirthdays:
+      "There are no birthdays and anniversaries for the next days.",
+  };
 });

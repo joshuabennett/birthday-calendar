@@ -1,9 +1,9 @@
 export interface IHappyBirthdayCardProps {
-  userName?:string;
+  userName?: string;
   jobDescription?: string;
   birthday: string;
-  anniversary: boolean;
-  userEmail:string;
+  anniversary: string;
+  userEmail: string;
   congratulationsMsg?: string;
-  imageTemplate:string;
+  imageTemplate: string;
 }
