@@ -83,6 +83,12 @@ const imageTemplate: { imageUrl: string }[] = [
   {
     imageUrl: require(".../../../assets/cof30.png"),
   },
+  {
+    imageUrl: require(".../../../assets/pills.png"),
+  },
+  {
+    imageUrl: require(".../../../assets/tabs.png"),
+  }
 ];
 
 export class HappyBirthdayCard extends React.Component<
@@ -158,7 +164,7 @@ export class HappyBirthdayCard extends React.Component<
                   ? imageTemplate[12].imageUrl
                   : this.props.birthday !== "Invalid date"
                   ? imageTemplate[this.props.imageTemplate].imageUrl
-                  : imageTemplate[16].imageUrl
+                  : imageTemplate[22].imageUrl
               }
               width={IMG_WIDTH}
               height={IMG_HEIGTH}
@@ -253,6 +259,6 @@ export class HappyBirthdayCard extends React.Component<
         </span>
       </div>
     );
-  };
+  }
 }
 export default HappyBirthdayCard;

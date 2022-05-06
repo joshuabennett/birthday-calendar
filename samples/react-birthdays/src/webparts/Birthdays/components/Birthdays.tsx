@@ -71,11 +71,14 @@ export default class Birthdays extends React.Component<
 
   // Sort Array of Birthdays
   private SortBirthdays(users: IUser[]) {
+    console.log(users);
     return users.sort((a, b) => {
-      if (a.birthday || a.anniversary > b.birthday || b.anniversary) {
+      if (((a.birthday.length > 0 ? moment(a.birthday).set('year', 2022) : false) || (a.anniversary.length > 0 ? moment(a.anniversary).set('year', 2022) : false)) > ((b.birthday.length > 0 ? moment(b.birthday).set('year', 2022) : false) || (b.anniversary.length > 0 ? moment(b.anniversary).set('year', 2022) : false))) {
+        console.log(`${a.userName} has a birthday of ${a.birthday} and anniversary of ${a.anniversary} which is greater than ${b.userName} who has a birthday of ${b.birthday} and anniversary of ${b.anniversary}.`);
         return 1;
       }
-      if (a.birthday || a.anniversary < b.birthday || b.anniversary) {
+      if (((a.birthday.length > 0 ? moment(a.birthday).set('year', 2022) : false) || (a.anniversary.length > 0 ? moment(a.anniversary).set('year', 2022) : false)) < ((b.birthday.length > 0 ? moment(b.birthday).set('year', 2022) : false) || (b.anniversary.length > 0 ? moment(b.anniversary).set('year', 2022) : false))) {
+        console.log(`${a.userName} has a birthday of ${a.birthday} and anniversary of ${a.anniversary} which is greater than ${b.userName} who has a birthday of ${b.birthday} and anniversary of ${b.anniversary}.`);
         return -1;
       }
       return 0;
@@ -91,7 +94,7 @@ export default class Birthdays extends React.Component<
       _otherMonthsBirthdays = [];
       _dezemberBirthdays = [];
       var startDate = moment().subtract("d", 1);
-      var endDate = moment().add("d", 5);
+      var endDate = moment().add("d", 30);
       for (const item of listItems) {
         if (
           moment(item.fields.oiia)
@@ -105,13 +108,13 @@ export default class Birthdays extends React.Component<
             anniversary: "",
             userEmail: item.fields.sfrs,
             jobDescription: item.fields._x0077_xd1,
-            birthday: moment.utc(item.fields.oiia).local().format(),
+            birthday: moment.utc(item.fields.oiia).local(true).format(),
           });
         } else {
           this._users.push({
             key: item.fields.sfrs,
             userName: item.fields.Title,
-            anniversary: moment.utc(item.fields.Anniversary).local().format(),
+            anniversary: moment.utc(item.fields.Anniversary).local(true).format(),
             message: item.fields.message,
             userEmail: item.fields.sfrs,
             jobDescription: item.fields._x0077_xd1,

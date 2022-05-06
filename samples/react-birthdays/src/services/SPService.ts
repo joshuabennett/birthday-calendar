@@ -65,7 +65,7 @@ export class SPService {
         .get();
 
       var startDate = moment().subtract("d", 1);
-      var endDate = moment().add("d", 5);
+      var endDate = moment().add("d", 30);
       var filteredItems = _results.value.filter((item) => {
         return (
           moment(item.fields.Anniversary)
