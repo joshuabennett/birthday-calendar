@@ -7,7 +7,7 @@ export class SPService {
   private birthdayListTitle: string = "Birthdays";
   constructor(private _context: WebPartContext) {}
   // Get Profiles
-  public async getPBirthdays(upcommingDays: number): Promise<any[]> {
+  public async getPBirthdays(upcomingDays: number): Promise<any[]> {
     let _results, _today: string, _month: number, _day: number;
     let _filter: string, _countdays: number, _f: number, _nextYearStart: string;
     let _FinalDate: string;
@@ -65,7 +65,7 @@ export class SPService {
         .get();
 
       var startDate = moment().subtract("d", 1);
-      var endDate = moment().add("d", 30);
+      var endDate = moment().add("d", upcomingDays);
       var filteredItems = _results.value.filter((item) => {
         return (
           moment(item.fields.Anniversary)

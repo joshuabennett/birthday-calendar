@@ -5,7 +5,8 @@ import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
-  PropertyPaneChoiceGroup
+  PropertyPaneChoiceGroup,
+  PropertyPaneSlider,
 
 } from "@microsoft/sp-property-pane";
 
@@ -132,14 +133,13 @@ export default class BirthdaysWebPart extends BaseClientSideWebPart<IBirthdaysWe
                 PropertyPaneTextField('title', {
                   label: strings.DescriptionFieldLabel
                 }),
-                PropertyFieldNumber("numberUpcomingDays", {
-                  key: "numberUpcomingDays",
+                PropertyPaneSlider("numberUpcomingDays", {
                   label: strings.NumberUpComingDaysLabel,
-                  description: strings.NumberUpComingDaysLabel,
                   value: this.properties.numberUpcomingDays,
-                  maxValue: 10,
-                  minValue: 1,
-                  disabled: false
+                  showValue: true,
+                  max: 30,
+                  min: 1,
+                  step: 1
                 }),
                 PropertyPaneChoiceGroup('template', {
                   label: 'Background Image',

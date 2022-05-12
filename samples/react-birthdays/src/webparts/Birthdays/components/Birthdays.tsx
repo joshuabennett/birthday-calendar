@@ -94,7 +94,7 @@ export default class Birthdays extends React.Component<
       _otherMonthsBirthdays = [];
       _dezemberBirthdays = [];
       var startDate = moment().subtract("d", 1);
-      var endDate = moment().add("d", 30);
+      var endDate = moment().add("d", this.props.numberUpcomingDays);
       for (const item of listItems) {
         if (
           moment(item.fields.oiia)
