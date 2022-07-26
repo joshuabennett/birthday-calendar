@@ -7,6 +7,19 @@ export class SPService {
   private birthdayListTitle: string = "Birthdays";
   constructor(private _context: WebPartContext) {}
   // Get Profiles
+  public async getDataFromGraph(url: string) {
+    const results = await this.graphClient
+    .api(
+      url
+    )
+    .version("v1.0")
+    .expand("fields")
+    //.top(upcommingDays)
+    // .filter(_filter)
+    .get();
+    return results;
+  }
+
   public async getPBirthdays(upcomingDays: number): Promise<any[]> {
     let _results, _today: string, _month: number, _day: number;
     let _filter: string, _countdays: number, _f: number, _nextYearStart: string;
@@ -54,19 +67,21 @@ export class SPService {
       }
 
       this.graphClient = await this._context.msGraphClientFactory.getClient();
-      _results = await this.graphClient
-        .api(
-          `sites/root/lists('${this.birthdayListTitle}')/items?orderby=fields/oiia`
-        )
-        .version("v1.0")
-        .expand("fields")
-        //.top(upcommingDays)
-        // .filter(_filter)
-        .get();
+      var combinedResults = [];
+      var data = await this.getDataFromGraph(`sites/root/lists('${this.birthdayListTitle}')/items?orderby=fields/oiia`);
+      console.log(data);
+      combinedResults = combinedResults.concat(data.value);
+      while (data["@odata.nextLink"]) {
+        data =  await this.getDataFromGraph(data["@odata.nextLink"]);
+        console.log(data);
+        combinedResults = combinedResults.concat(data.value);
+      }
+      console.log(combinedResults);
+
 
       var startDate = moment().subtract("d", 1);
       var endDate = moment().add("d", upcomingDays);
-      var filteredItems = _results.value.filter((item) => {
+      var filteredItems = combinedResults.filter((item) => {
         return (
           moment(item.fields.Anniversary)
             .set("year", 2022)
@@ -76,7 +91,9 @@ export class SPService {
             .isBetween(startDate, endDate)
         );
       });
-      console.log(filteredItems);
+      console.log(_results);
+      console.log(startDate);
+      console.log(endDate);
       return filteredItems;
     } catch (error) {
       console.dir(error);
